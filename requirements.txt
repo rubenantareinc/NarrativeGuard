@@ -1,0 +1,10 @@
+pandas
+numpy
+requests
+pyyaml
+tqdm
+scikit-learn
+matplotlib
+scipy
+vaderSentiment
+joblib

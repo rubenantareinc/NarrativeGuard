@@ -1,0 +1,54 @@
+project_name: "city_conflict_risk_nlp"
+seed: 42
+
+date_range:
+  start: "2024-01-01"
+  end:   "2024-04-30"
+
+gdelt:
+  maxrecords_per_city: 250
+  sort: "HybridRel"  # or "DateDesc"
+  query_spine: '(protest OR clash OR attack OR riot OR "security forces" OR militia OR bombing OR "armed")'
+
+cities:
+  - "Cairo"
+  - "Alexandria"
+  - "Tripoli"
+  - "Beirut"
+  - "Gaza"
+  - "Jerusalem"
+  - "Damascus"
+  - "Baghdad"
+  - "Sanaa"
+  - "Khartoum"
+  - "Tunis"
+  - "Algiers"
+
+text_fields:
+  - "title"
+  - "description"
+
+bucketing:
+  freq: "M"   # monthly buckets; try "W" for weekly later
+
+features:
+  tfidf_max_features: 5000
+  tfidf_ngram_range: [1, 2]
+  min_doc_length: 50
+
+labeling:
+  # Synthetic forward-looking label for pipeline validation
+  # label = next-month conflict cue count (binarized)
+  high_risk_quantile: 0.75
+
+conflict_cues:
+  - "attack"
+  - "clash"
+  - "protest"
+  - "riot"
+  - "bomb"
+  - "explosion"
+  - "militia"
+  - "airstrike"
+  - "kidnap"
+  - "shooting"
