@@ -86,5 +86,4 @@ python -m src.models.train_baseline
 ## Citation / disclaimer
 This project is for research exploration only. Do not use it for operational or policy decisions. Correlation is not causation.
 
-## Project context
-[PASTE MY PROJECT DESCRIPTION + METHOD TEXT HERE]
+
