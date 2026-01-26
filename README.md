@@ -33,8 +33,11 @@ I ran an ablation study across three feature sets: structured-only indicators, t
 | text_only | 5.266851388233674 | 6.618965001071727 | 0.05234175191486434 |
 | combined | 4.811011541920891 | 5.828704100851181 | 0.2651214102909344 |
 
+### Ablation plots
+
 ![Ablation RMSE](outputs/ablation_rmse.png)
-![Ablation R2](outputs/ablation_r2.png)
+
+![Ablation R²](outputs/ablation_r2.png)
 
 ### Reproducibility
 ```bash
