@@ -1,18 +1,32 @@
 project_name: "city_conflict_risk_nlp"
 seed: 42
+
+# Structured dataset (real labels)
 structured_path: "data/raw/MiddleEast.csv"
+
+# Merge strategy for text artifacts:
+# - "latest" uses the most recent bucket in city_bucket_docs.csv
+# - "config" uses merge_bucket_value below
 merge_bucket_strategy: "latest"  # or "config"
 merge_bucket_value: null
 
+# Wider window increases chance of coverage, but the BIG win is broad query + fewer 429 failures.
 date_range:
-  start: "2024-01-01"
-  end:   "2024-04-30"
+  start: "2023-01-01"
+  end:   "2024-12-31"
 
 gdelt:
-  maxrecords_per_city: 250
-  sort: "HybridRel"  # or "DateDesc"
-  query_spine: '(protest OR clash OR attack OR riot OR "security forces" OR militia OR bombing OR "armed")'
+  # Higher cap per city helps cities with sparse coverage
+  maxrecords_per_city: 1000
 
+  # Prefer recent articles first (often yields more stable results than HybridRel)
+  sort: "DateDesc"
+
+  # Broad query to maximize city coverage (not conflict-only).
+  # We still compute conflict cues later as features.
+  query_spine: '(city OR government OR security OR protest OR conflict OR violence OR election OR refugee OR displacement)'
+
+# Fallback cities only (your pipeline should use data/processed/cities.txt if present)
 cities:
   - "Cairo"
   - "Alexandria"
@@ -32,18 +46,16 @@ text_fields:
   - "description"
 
 bucketing:
-  freq: "M"   # monthly buckets; try "W" for weekly later
+  freq: "M"
 
 features:
   tfidf_max_features: 5000
   tfidf_ngram_range: [1, 2]
-  min_doc_length: 50
 
-labeling:
-  # Synthetic forward-looking label for pipeline validation
-  # label = next-month conflict cue count (binarized)
-  high_risk_quantile: 0.75
+  # Keep more cities (don’t filter away sparse coverage)
+  min_doc_length: 10
 
+# Used for cue counts / lexical signal in the text artifacts
 conflict_cues:
   - "attack"
   - "clash"
@@ -55,3 +67,4 @@ conflict_cues:
   - "airstrike"
   - "kidnap"
   - "shooting"
+
