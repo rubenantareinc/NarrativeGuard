@@ -1,0 +1,12 @@
+[
+  [
+    "She said the meeting was Monday, later she said it was Friday.",
+    "consistent",
+    "contradiction"
+  ],
+  [
+    "He wrote that the lab closed in 2019 and has stayed closed.",
+    "contradiction",
+    "consistent"
+  ]
+]

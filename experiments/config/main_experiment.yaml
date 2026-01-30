@@ -1,0 +1,7 @@
+data_path: "experiments/config/sample_dataset.json"
+model_type: "narrative_guard"
+params:
+  max_features: 20000
+metrics: [precision, recall, f1, accuracy]
+seed: 0
+baseline_results: "experiments/config/sample_baseline_results.json"

@@ -1,0 +1,25 @@
+experiments:
+  exp1_baseline_comparison:
+    description: "Compare NarrativeGuard to baselines on Test Set A"
+    metrics: [precision, recall, f1, latency]
+    datasets: [test_a]
+    models: [rule_based, tfidf_svm, bert_base, narrative_guard]
+
+  exp2_ablation_study:
+    description: "Which pipeline components contribute most?"
+    variants:
+      - full_pipeline
+      - no_preprocessing
+      - no_context_window
+      - simplified_scoring
+
+  exp3_human_evaluation:
+    description: "Do automated metrics align with human judgment?"
+    annotators: 3
+    samples: 100
+    tasks: [rate_quality, identify_errors, preference_ranking]
+
+  exp4_error_analysis:
+    description: "Categorize and analyze failure modes"
+    error_categories: [false_positives, false_negatives, edge_cases]
+    qualitative_analysis: true

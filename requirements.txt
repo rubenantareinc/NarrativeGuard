@@ -5,6 +5,9 @@ pyyaml
 tqdm
 scikit-learn
 matplotlib
+seaborn
 scipy
 vaderSentiment
 joblib
+transformers
+torch
