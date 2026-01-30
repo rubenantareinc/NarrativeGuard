@@ -1,0 +1,14 @@
+{
+  "train_texts": [
+    "Maya said the artifact was lost, yet later she claimed it was safe in the vault.",
+    "The captain noted the ship departed on Tuesday and returned on Friday.",
+    "The witness saw the lights dim, but the report insists they never went out."
+  ],
+  "train_labels": [1, 0, 1],
+  "test_texts": [
+    "He promised he never left the city, yet he described the mountain hike in detail.",
+    "The diary confirms the meeting was on Monday and the notes match.",
+    "She wrote that the storm ended at dawn, then later claimed it lasted all week."
+  ],
+  "test_labels": [1, 0, 1]
+}

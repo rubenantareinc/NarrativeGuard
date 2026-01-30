@@ -1,0 +1,12 @@
+[
+  {
+    "input": "She said the treaty was signed in 2010, but later claimed it was never ratified.",
+    "baseline_output": "consistent",
+    "narrativeguard_output": "contradiction"
+  },
+  {
+    "input": "The engineer confirmed the bridge opened last spring and has been in use since.",
+    "baseline_output": "contradiction",
+    "narrativeguard_output": "consistent"
+  }
+]
