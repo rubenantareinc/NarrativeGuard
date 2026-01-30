@@ -6,17 +6,17 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 [![Report](https://img.shields.io/badge/Report-PAPER.md-brightgreen.svg)](PAPER.md)
 
-## 🎯 Research Question
+## Research Question
 
 **Can we automatically identify factual and logical inconsistencies in long-form AI-generated narratives?**
 
-## 💡 Motivation
+## Motivation
 
 Large language models can generate fluent, persuasive narratives that hide subtle contradictions. In high-stakes contexts—journalism, legal reporting, medical records—these inconsistencies can mislead readers and erode trust. Existing evaluations emphasize surface fluency, leaving narrative consistency under-examined.
 
 NarrativeGuard addresses this gap with a dedicated detection pipeline, baselines, and a structured evaluation suite. The project emphasizes reproducibility, rigorous error analysis, and alignment with human judgment to support research-grade claims.
 
-## 🔬 Approach
+## Approach
 
 ### System Architecture
 
@@ -30,7 +30,7 @@ Narrative text → Segmentation → Entity tracking → Consistency scoring → 
 - **Multi-baseline benchmarking**: Rule-based, classical ML, and neural baselines for comparison.
 - **Error taxonomy + analysis**: Systematic categorization of false positives/negatives with examples.
 
-## 📊 Results
+## Results
 
 ### Main Findings
 
@@ -57,7 +57,7 @@ _Figure generated locally at `outputs/figures/error_categories.png`._
 - Correlation with human judgments: ρ = 0.81 (p < 0.001)
 - Preference: NarrativeGuard preferred **68%** of the time vs. best baseline
 
-## 🔍 Error Analysis
+##  Error Analysis
 
 ### Error Taxonomy
 
@@ -111,7 +111,7 @@ ERROR_TYPES = {
 - Context window limited to 512 tokens, missing long-range contradictions
 - Domain-specific knowledge gaps in legal/medical text
 
-## 🚀 Quick Start
+##  Quick Start
 
 ```bash
 python -m venv .venv
@@ -125,7 +125,7 @@ python experiments/run_all.py
 python -m src.analysis.generate_demo_outputs
 ```
 
-## 📖 Reproducibility
+##  Reproducibility
 
 All experiments can be reproduced:
 
@@ -135,45 +135,18 @@ python experiments/run_all.py
 
 Results are saved to `experiments/results/` with timestamped folders.
 
-## 🗂️ Repository Structure
 
-```
-.
-├── README.md
-├── PAPER.md
-├── requirements.txt
-├── data/
-│   ├── raw/
-│   ├── processed/
-│   ├── annotations/
-│   └── README.md
-├── src/
-│   ├── pipeline/
-│   ├── baselines/
-│   ├── evaluation/
-│   └── analysis/
-├── experiments/
-│   ├── config/
-│   ├── results/
-│   └── notebooks/
-├── outputs/
-│   ├── figures/
-│   ├── tables/
-│   └── examples/
-└── tests/
-```
-
-## 📚 Technical Details
+##  Technical Details
 
 For full technical details, see [PAPER.md](PAPER.md).
 
-## 🙏 Acknowledgments
+## Acknowledgments
 
 - GDELT data API for initial news collection.
 - Baseline references: scikit-learn (TF-IDF + SVM), BERT-base (Devlin et al.).
 - Human annotations: pilot study with 3 annotators (n=100).
 
-## 📄 Citation
+## Citation
 
 ```bibtex
 @misc{arena2026narrativeguard,
@@ -184,6 +157,6 @@ For full technical details, see [PAPER.md](PAPER.md).
 }
 ```
 
-## 📬 Contact
+## Contact
 
-Questions? Open an issue or reach out: ruben.arena@example.com
+Questions? Open an issue or reach out: ruben.arena@studenti.luiss.it
