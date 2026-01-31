@@ -153,7 +153,7 @@ For full technical details, see [PAPER.md](PAPER.md).
   title={NarrativeGuard: Automated Inconsistency Detection in Generated Text},
   author={Arena, Ruben},
   year={2026},
-  howpublished={\url{https://github.com/your-handle/narrativeguard}}
+  howpublished={\url{https://github.com/rubenantareinc/narrativeguard}}
 }
 ```
 
