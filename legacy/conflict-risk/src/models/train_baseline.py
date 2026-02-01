@@ -48,7 +48,7 @@ def parse_args() -> argparse.Namespace:
         default="combined",
         help="Feature set to train metrics/importance for (ablation covers all).",
     )
-    parser.add_argument("--config", default="configs/config.yaml", help="Path to config file.")
+    parser.add_argument("--config", default="legacy/conflict-risk/config.yaml", help="Path to config file.")
     return parser.parse_args()
 
 
@@ -247,7 +247,9 @@ def main() -> None:
 
     data_path = Path("data/processed/model_table.csv")
     if not data_path.exists():
-        raise FileNotFoundError("Run merge step first: python -m src.features.merge_structured_text")
+        raise FileNotFoundError(
+            "Run merge step first: python legacy/conflict-risk/src/features/merge_structured_text.py"
+        )
 
     df = read_csv(data_path)
     outputs = ensure_dir("outputs")

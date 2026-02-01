@@ -20,7 +20,7 @@ def normalize_name(value: str) -> str:
     return " ".join(value.split()).strip()
 
 
-def main(cfg_path: str = "configs/config.yaml") -> None:
+def main(cfg_path: str = "legacy/conflict-risk/config.yaml") -> None:
     cfg = load_config(cfg_path)
     structured_path = Path(cfg.get("structured_path", "data/raw/MiddleEast.csv"))
 
