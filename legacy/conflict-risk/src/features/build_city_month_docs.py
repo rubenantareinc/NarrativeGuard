@@ -27,12 +27,14 @@ def cue_count(text: str, cues: list[str]) -> int:
         count += len(re.findall(rf"\b{re.escape(c.lower())}\b", text))
     return int(count)
 
-def main(cfg_path: str = "configs/config.yaml") -> None:
+def main(cfg_path: str = "legacy/conflict-risk/config.yaml") -> None:
     cfg = load_config(cfg_path)
 
     raw_path = Path("data/raw/gdelt_articles.csv")
     if not raw_path.exists():
-        raise FileNotFoundError("Run ingest first: python -m src.ingest.fetch_gdelt")
+        raise FileNotFoundError(
+            "Run ingest first: python legacy/conflict-risk/src/ingest/fetch_gdelt.py"
+        )
 
     df = read_csv(raw_path)
     if df.empty:

@@ -24,16 +24,20 @@ def select_bucket(docs: pd.DataFrame, cfg: dict) -> pd.Timestamp:
     return pd.to_datetime(docs["bucket"]).max()
 
 
-def main(cfg_path: str = "configs/config.yaml") -> None:
+def main(cfg_path: str = "legacy/conflict-risk/config.yaml") -> None:
     cfg = load_config(cfg_path)
 
     structured_path = Path("data/processed/structured.csv")
     text_path = Path("data/processed/city_bucket_docs.csv")
 
     if not structured_path.exists():
-        raise FileNotFoundError("Run structured ingest first: python -m src.ingest.load_structured")
+        raise FileNotFoundError(
+            "Run structured ingest first: python legacy/conflict-risk/src/ingest/load_structured.py"
+        )
     if not text_path.exists():
-        raise FileNotFoundError("Run text feature build first: python -m src.features.build_city_month_docs")
+        raise FileNotFoundError(
+            "Run text feature build first: python legacy/conflict-risk/src/features/build_city_month_docs.py"
+        )
 
     structured = read_csv(structured_path)
     docs = read_csv(text_path)

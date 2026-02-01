@@ -85,7 +85,7 @@ def fetch_city_articles(
     return out
 
 
-def main(cfg_path: str = "configs/config.yaml") -> None:
+def main(cfg_path: str = "legacy/conflict-risk/config.yaml") -> None:
     cfg = load_config(cfg_path)
 
     start = cfg["date_range"]["start"]
@@ -120,4 +120,3 @@ def main(cfg_path: str = "configs/config.yaml") -> None:
 
 if __name__ == "__main__":
     main()
-
