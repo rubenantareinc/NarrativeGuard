@@ -10,3 +10,13 @@ __pycache__/
 
 # Local outputs (optional)
 outputs/
+
+# local env
+.venv/
+
+# python cache
+__pycache__/
+*.pyc
+
+# local generated outputs (keep docs/figures instead)
+outputs/figures/
